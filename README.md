@@ -1,2 +1,2 @@
 # soundboard
- a soundboard electron app
+ a soundboard website
