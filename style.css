@@ -1,4 +1,4 @@
-/* Body Styling */
+/* General Styling */
 body {
     background-color: darkslategray;
     margin: 0;
@@ -10,29 +10,40 @@ body {
     box-sizing: border-box;
 }
 
-/* Iframe Styling */
-iframe {
-    width: 100%; /* Full width of the parent container */
-    height: 100%; /* Full height of the parent container */
-    max-width: 100vw; /* Prevents overflow beyond viewport width */
-    max-height: 100vh; /* Prevents overflow beyond viewport height */
-    border: none; /* Removes default border */
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: 1.5rem; /* Adjust as needed */
-    border-radius: 0; /* No unnecessary rounding for iframe */
+/* Container for Responsive Iframes */
+.iframe-container {
+    display: flex;
+    flex-wrap: wrap; /* Allows iframes to stack on smaller screens */
+    gap: 1rem; /* Adds space between iframes */
+    justify-content: center; /* Centers iframes horizontally */
+    align-items: center; /* Aligns iframes vertically */
+    width: 100%;
+    padding: 1rem; /* Adds padding around the container */
 }
 
-/* Responsive Adjustments */
+/* Responsive Iframes */
+iframe {
+    width: calc(25% - 1rem); /* Each iframe takes 25% of the width */
+    max-width: 200px; /* Ensures iframes don't get too large */
+    height: 250px; /* Height to fit most content */
+    border: none; /* Removes border for a cleaner look */
+    border-radius: 4px; /* Optional: Adds subtle rounded corners */
+    overflow: auto; /* Allows scrolling inside the iframe if content is too large */
+}
+
+/* Media Queries for Smaller Screens */
 @media (max-width: 768px) { /* Tablets */
     iframe {
-        width: 95%; /* Smaller width for tablets */
-        height: 90%; /* Adjust height to leave some margin */
+        width: calc(33% - 1rem); /* Each iframe takes 33% of the width */
+        max-width: 180px; /* Slightly smaller max size for tablets */
+        height: 220px; /* Adjusted height for tablet screens */
     }
 }
 
-@media (max-width: 480px) { /* Small screens like phones */
+@media (max-width: 480px) { /* Phones */
     iframe {
-        width: 100%; /* Utilize full width on small screens */
-        height: 85vh; /* Slight reduction for visibility */
+        width: calc(50% - 1rem); /* Each iframe takes 50% of the width */
+        max-width: 160px; /* Compact size for small screens */
+        height: 200px; /* Adjusted height for smaller screens */
     }
 }
