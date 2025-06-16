@@ -8,6 +8,7 @@
     <link rel="shortcut icon" href="https://teslakitty-cdn.netlify.app/favicon.ico" type="image/x-icon">
 </head>
 <body>
+    <button id="stopAllBtn" style="position:fixed;top:20px;left:50%;transform:translateX(-50%);z-index:1000;padding:0.7em 2em;font-size:1.1em;border-radius:8px;border:none;background:#e74c3c;color:white;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,0.2);">Stop All Sounds</button>
     <div class="iframe-container">
         <iframe src="https://www.myinstants.com/instant/sad-meow-song-88771/embed/" frameborder="0" scrolling="no"></iframe>
         <iframe src="https://www.myinstants.com/instant/tuco-get-out-30566/embed/" frameborder="0" scrolling="no"></iframe>
@@ -25,5 +26,13 @@
         <iframe width="110" height="200" src="https://www.myinstants.com/instant/discordjoin-4695/embed/" frameborder="0" scrolling="no"></iframe>
         <iframe width="110" height="200" src="https://www.myinstants.com/instant/deja-vu-fade-14940/embed/" frameborder="0" scrolling="no"></iframe>
     </div>
+    <script>
+        // Stop all sounds by reloading all iframes
+        document.getElementById('stopAllBtn').addEventListener('click', function() {
+            document.querySelectorAll('.iframe-container iframe').forEach(iframe => {
+                iframe.src = iframe.src;
+            });
+        });
+    </script>
 </body>
 </html>
